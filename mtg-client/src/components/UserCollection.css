@@ -1,0 +1,24 @@
+.Card {
+    width: 70%;
+    height: 70%
+  }
+  
+  .UList { 
+    columns: 3;
+
+    text-align: center;
+    list-style: none;
+  }
+  .List {
+   margin-bottom: 40px;
+  }
+
+.Text {
+    align-content: center;
+    color: rgb(189, 182, 182);
+    font-family: "Fondamento";
+}
+
+.Center {
+    margin-left: 20%
+}
