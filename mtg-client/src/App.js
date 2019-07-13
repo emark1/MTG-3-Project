@@ -46,10 +46,9 @@ class App extends Component {
       
         <Login />
         <p></p>
-        <button>Register</button>
-        <div >
+        <div>
 
-        <img src={this.state.randomCard.image_uris.png}/>
+        <img className="frontImage" src={this.state.randomCard.image_uris.png}/>
         </div>
 
       </div>

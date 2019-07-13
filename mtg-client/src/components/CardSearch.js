@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import './CardSearch.css';
-import { useAlert } from "react-alert";
+
 
 export class CardSearch extends Component {
   constructor() {

@@ -23,9 +23,9 @@ app.use(bodyParser.json())
     let power = req.body.power
     let imageuripng = req.body.image_uris.png
     let price = req.body.prices.usd
-    let colors = req.body.colors
+    let colors = req.body.colors.toString()
     // let colorindicator = req.body.
-    // let coloridentity = req.body.
+    let coloridentity = req.body.color_identity.toString()
 
     //create variable that holds an object, in format of Card class
     let card = models.Card.build({
@@ -37,7 +37,8 @@ app.use(bodyParser.json())
         power: power,
         imageuripng: imageuripng,
         price: price,
-        colors: colors,
+        color: colors,
+        coloridentity: coloridentity
       })
     //save the new variable to the Cards table
     card.save().then((savedCard) => {
@@ -77,10 +78,6 @@ models.Card.sum('price').then(sum => {
   res.json(sum)
   })
 })
-// Project.sum('age', { where: { age: { [Op.gt]: 5 } } }).then(sum => {
-//   // will be 50
-// })
-
 
 
 //****************LOGIN & AUTHENTICATION****************

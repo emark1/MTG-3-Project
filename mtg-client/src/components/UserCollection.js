@@ -1,5 +1,10 @@
 import React, {Component} from 'react';
 import './UserCollection.css';
+import Mana_B from './Mana_B.png'
+import Mana_G from './Mana_G.png'
+import Mana_W from './Mana_W.png'
+import Mana_R from './Mana_R.png'
+import Mana_U from './Mana_U.png'
 
 export class CardList extends Component {
     constructor() {
@@ -9,6 +14,7 @@ export class CardList extends Component {
         this.state = {
           //cards will be an array filled with objects sent from the server
           cards: [],
+          filteredCards: [],
           name: '',
           cardid: '',
           imageuripng: '',
@@ -18,6 +24,8 @@ export class CardList extends Component {
           power: '',
           price: 0,
           value: 0,
+          color: '',
+          coloridentity: '',
 
           isUpdated:false
           }
@@ -71,19 +79,39 @@ export class CardList extends Component {
         
     }
 
+    filterCards(colorfilter) {
+        console.log("Attempting to filter cards!")
+        let cards = this.state.cards
+        let filteredCards = cards.filter(function(card) {
+            if(card.color.includes(colorfilter)) return card
+        })
+        this.setState({
+        filteredCards: filteredCards
+        })
+    }
+
+
 
     render() {
         let cards = this.state.cards
         let cardItems = cards.map((card) => {
 
           return (
+
             <li className="List">
             <img className="Card" src={card.imageuripng}/><p></p><span className="Text">Price: ${card.price}</span><button onClick={() => this.deleteClick(card)}>Delete</button></li>
           )
         })
         return (
             <div>
-            <h1 className="Text">Collection Value: {this.state.value}</h1>
+            <h1 className="Text">Collection Value: ${this.state.value}</h1>
+            <li className="ColorList">
+                <img onClick={() => this.filterCards("B")} className="ColorImages" src={Mana_B}/>
+                <img onClick={() => this.filterCards("W")} className="ColorImages" src={Mana_W}/>
+                <img onClick={() => this.filterCards("R")} className="ColorImages" src={Mana_R}/>
+                <img onClick={() => this.filterCards("U")} className="ColorImages" src={Mana_U}/>
+                <img onClick={() => this.filterCards("G")} className="ColorImages" src={Mana_G}/>
+            </li>
             <ul className="UList">{cardItems}</ul>
             </div>
         )

@@ -19,6 +19,16 @@
     font-family: "Fondamento";
 }
 
+.ColorList{
+  display: flex;
+  justify-content: center;
+}
+
+.ColorImages{
+  padding: 30px;
+  width: 100px;
+}
+
 .Center {
     margin-left: 20%
 }
